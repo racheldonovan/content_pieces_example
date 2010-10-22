@@ -1,0 +1,21 @@
+- title "Content Piece"
+
+%p
+  %strong Controller:
+  =h @content_piece.controller
+%p
+  %strong View:
+  =h @content_piece.view
+%p
+  %strong Area:
+  =h @content_piece.area
+%p
+  %strong Content:
+  =h @content_piece.content
+
+%p
+  = link_to "Edit", edit_content_piece_path(@content_piece)
+  |
+  = link_to "Destroy", @content_piece, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", content_pieces_path

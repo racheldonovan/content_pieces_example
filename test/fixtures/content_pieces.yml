@@ -1,0 +1,11 @@
+one:
+  controller: MyString
+  view: MyString
+  area: MyString
+  content: MyText
+
+two:
+  controller: MyString
+  view: MyString
+  area: MyString
+  content: MyText

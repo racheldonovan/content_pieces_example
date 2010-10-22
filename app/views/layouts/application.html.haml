@@ -1,0 +1,35 @@
+!!! Strict
+%html{html_attrs}
+
+  %head
+    %title= h(yield(:title) || "Untitled")
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}
+    = stylesheet_link_tag 'application'
+    = yield(:head)
+    = javascript_include_tag 'application'
+   
+  %body
+    #container
+      #nav
+        = link_to 'home', root_url
+        |
+        = link_to 'about us', '/about'
+        |
+        = link_to 'about our team', '/about/team'
+        |
+        - if logged_in?
+          = link_to 'manage content', content_pieces_path
+          |
+          = link_to 'logout', '/logout'
+        - else
+          = link_to 'login', login_path
+          
+      - flash.each do |name, msg| 
+        = content_tag :div, msg, :id => "flash_#{name}" 
+      
+      - if show_title?
+        %h1=h yield(:title)
+        
+      = yield 
+      
+      = render :partial => '/shared/scripts'

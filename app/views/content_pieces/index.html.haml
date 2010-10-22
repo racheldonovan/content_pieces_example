@@ -1,0 +1,17 @@
+- title "Content Pieces"
+
+%table
+  %tr
+    %th Controller
+    %th View
+    %th Area
+  - for content_piece in @content_pieces
+    %tr
+      %td= h content_piece.controller
+      %td= h content_piece.view
+      %td= h content_piece.area
+      %td= link_to 'Show', content_piece
+      %td= link_to 'Edit', edit_content_piece_path(content_piece)
+      %td= link_to 'Destroy', content_piece, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Content Piece", new_content_piece_path
