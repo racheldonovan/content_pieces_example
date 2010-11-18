@@ -11,7 +11,8 @@
   =h @content_piece.area
 %p
   %strong Content:
-  =h @content_piece.content
+  :markdown
+    #{@content_piece.content}
 
 %p
   = link_to "Edit", edit_content_piece_path(@content_piece)
